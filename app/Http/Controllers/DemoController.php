@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\TestMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class DemoController extends Controller
 {
@@ -17,6 +19,8 @@ class DemoController extends Controller
     }
     public function bar()
     {
+        Mail::to('test@mail.test')->send(new TestMail());
+
         return view('testDemo.bar');
     }
 }
