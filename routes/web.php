@@ -16,10 +16,15 @@ use App\Http\Controllers\DemoController;
 
 Route::get('/', function () {
     return view('welcome');
-});
 
+});
+Route::middleware(['auth', ])->group(function () {
+        
 Route::get('bar', [DemoController::class, 'bar']);
 Route::get('fou', [DemoController::class, 'fou']);
+
+});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
