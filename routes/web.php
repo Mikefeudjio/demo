@@ -20,8 +20,8 @@ Route::get('/', function () {
 });
 Route::middleware(['auth', ])->group(function () {
         
-Route::get('bar', [DemoController::class, 'bar']);
-Route::get('fou', [DemoController::class, 'fou']);
+Route::get('bar', [DemoController::class, 'index']);
+Route::get('fou', [DemoController::class, 'create']);
 
 });
 
