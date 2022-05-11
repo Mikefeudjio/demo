@@ -28,6 +28,7 @@ class TestJobMarkdown extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails');
+        return $this->from('mutoyen.feudjio@gmail.com')
+                    ->markdown('emails');
     }
 }

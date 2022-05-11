@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Jobs\Testjob;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Mail\TestJobMarkdown;
 use Illuminate\Validation\Rules;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -49,7 +49,7 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        Mail::to($user->mail)->send(new TestJobMarkdown);
+       Testjob::dispatch($user);
 
         Auth::login($user);
 
